@@ -1,0 +1,11 @@
+desc "Upload release notes"
+lane :upload_release_notes do
+  deliver(
+    app_identifier: "com.example.MyApp",
+    app_version: get_version_number(target: "MyApp"),
+    force: true,
+    skip_binary_upload: true,
+    skip_screenshots: true,
+    metadata_path: "fastlane/metadata",
+  )
+end
